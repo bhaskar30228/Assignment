@@ -30,7 +30,7 @@ const SignIn = () => {
     };
 
     try {
-      const res = await axios.post(`${serverUrl}/auth/signIn`, data);
+      const res = await axios.post(`${serverUrl}/auth/signin`, data);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);

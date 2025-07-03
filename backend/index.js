@@ -11,6 +11,7 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 const allowedOrigins = [
+  "https://assignment-1v95.vercel.app/",
   "http://localhost:5173" 
 ];
 

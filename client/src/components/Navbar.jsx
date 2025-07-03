@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { FiBell } from "react-icons/fi";
-import { FaUserFriends, FaSignOutAlt } from "react-icons/fa";
 import bell from "../assets/bell.png"
 import people from "../assets/Vector (1).png"
 import logIn from "../assets/Vector (2).png"

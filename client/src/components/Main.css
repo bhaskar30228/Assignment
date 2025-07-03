@@ -1,0 +1,6 @@
+.main {
+  background: #fff;
+  width: 1190px;
+  height: 834px; /* 884 - 50 for footer */
+  padding: 20px;
+}

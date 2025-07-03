@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #55d6c2;
+}
+
+.left h1 {
+  margin: 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-container {
+  display: flex;
+  width: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.toggle-option {
+  flex: 1;
+  text-align: center;
+  padding: 6px 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+.inactive {
+  background-color: mediumturquoise;
+  color: black;
+}

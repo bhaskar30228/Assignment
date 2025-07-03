@@ -1,0 +1,53 @@
+.main {
+  width: 1190px;
+  height: 884px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.tickets-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.ticket-card {
+  border-radius: 8px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ticket-card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.ticket-count {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Specific card text colors for better contrast */
+.ticket-card:nth-child(1) {
+  color: white; /* For dark blue background */
+}
+
+.ticket-card:nth-child(4) {
+  color: #333; /* For yellow background */
+}

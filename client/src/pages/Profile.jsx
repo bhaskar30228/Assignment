@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
-import UserMain from '../components/UserMain';
 import UserProfile from '../components/UserProfile';
 import { AuthContext } from '../context/AuthContext';
 import SignIn from './SignIn';

@@ -1,4 +1,3 @@
-import React from 'react';
 import './TicketPopUp.css';
 
 const TicketPopUp = ({ ticket = {}, onClose }) => {

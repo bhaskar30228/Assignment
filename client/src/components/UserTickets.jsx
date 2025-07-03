@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TicketPopUp from './TicketPopUp';
 import './UserTickets.css';
 

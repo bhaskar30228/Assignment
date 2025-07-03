@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './MainNewTicket.css';
 import vector from '../assets/Vector.png';
 const MainNewTicket = () => {

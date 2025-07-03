@@ -8,8 +8,7 @@ import bodyParser from "body-parser";
 dotenv.config();
 const app = express();
 
-app.use(bodyParser.urlencoded({extended:true}))
-app.use(urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5173" 

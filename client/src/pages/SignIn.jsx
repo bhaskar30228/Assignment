@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 
 const SignIn = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn,serverUrl} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ const SignIn = () => {
     };
 
     try {
-      const res = await axios.post(`http://localhost:5000/auth/signIn`, data);
+      const res = await axios.post(`${serverUrl}/auth/signIn`, data);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);

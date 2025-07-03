@@ -5,7 +5,7 @@ import './SignUp.css';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 const SignUp = () => {
-  const {isLoggedIn,setIsLoggedIn}=useContext(AuthContext)
+  const {isLoggedIn,setIsLoggedIn, serverUrl}=useContext(AuthContext)
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: '',
@@ -25,11 +25,12 @@ const SignUp = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     const data={username:formData.username,email:formData.email,password:formData.password}
-    await axios.post(`http://localhost:5000/auth/signUp`, data)
+    setIsLoggedIn(true)
+    await axios.post(`${serverUrl}/auth/signIn`, data)
     .then((res) => {
       localStorage.setItem("token",res.data.token)
       localStorage.setItem("user",JSON.stringify(res.data.user))
-
+      console.log("User signed up successfully:", res.data);
       setIsLoggedIn(true);
       navigate("/dashboard")
     })

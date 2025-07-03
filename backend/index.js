@@ -3,12 +3,10 @@ import dotenv from "dotenv";
 import authRouter from "./routes/AuthRoutes.js";
 import connectDb from "./config/Db.js";
 import cors from "cors";
-import path from "path";
 import bodyParser from "body-parser"; 
 
 dotenv.config();
 const app = express();
-const __dirname = path.resolve();
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(urlencoded({extended:true}));
@@ -28,16 +26,12 @@ app.use(cors({
   credentials: true
 }));
 
-
 connectDb();
 
 app.use("/auth", authRouter);
 app.get("/", (req, res) => {
     res.send("Hello");
 });
-
-
-
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on http://localhost:${process.env.PORT}`);

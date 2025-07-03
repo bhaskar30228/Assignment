@@ -8,15 +8,12 @@ import { useNavigate } from 'react-router-dom';
 const Sidebar = () => {
   const navigate =useNavigate()
   const dashboard=()=>{
-    console.log("dashboard clicked");
     navigate('/dashboard')
   }
   const newTicket=()=>{
-    console.log("new ticket clicked");
     navigate('/newTicket')
   }
   const Tickets=()=>{
-    console.log("tickets clicked");
     navigate('/tickets')
   }
   

@@ -1,6 +1,9 @@
-import express from "express"
-const authRouter=express.Router()
-import { userSignUp,userLogin} from "../controller/userController.js"
-authRouter.post("/signUp",userSignUp)
-authRouter.post("/signIn",userLogin)
-export default authRouter
+import express from "express";
+const router = express.Router();
+import { userSignUp, userLogin } from "../controller/userController.js";
+
+// Use consistent route naming (lowercase)
+router.post("/signup", userSignUp);
+router.post("/signin", userLogin);
+
+export default router;

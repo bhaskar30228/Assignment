@@ -48,7 +48,6 @@ export const userLogin = async (req, res) => {
       process.env.SECRET_KEY,
       { expiresIn: '2h' }
     );
-    console.log(token);
     
     return res.status(200).json({ token, user });
   } catch (error) {

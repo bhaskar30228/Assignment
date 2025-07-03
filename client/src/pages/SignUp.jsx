@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
+import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
-
 const SignUp = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  const navigate = useNavigate();
-
+  const {isLoggedIn,setIsLoggedIn}=useContext(AuthContext)
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -23,38 +22,28 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    const data={username:formData.username,email:formData.email,password:formData.password}
+    await axios.post(`http://localhost:5000/auth/signUp`, data)
+    .then((res) => {
+      localStorage.setItem("token",res.data.token)
+      localStorage.setItem("user",JSON.stringify(res.data.user))
 
-    // ✅ Confirm password check
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    const data = {
-      username: formData.username,
-      email: formData.email,
-      password: formData.password
-    };
-
-    try {
-      const res = await axios.post(`http://localhost:5000/auth/signUp`, data);
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Error signing up user:", error.response?.data || error);
+      navigate("/dashboard")
+    })
+    .catch((error) => {
+      console.error("Error signing up user:", error);
       alert("Error signing up user. Please try again.");
-    }
+      })
   };
 
   return (
     <div className="signup-container">
       <div className="signup-box">
         <h1 className="signup-title">Helpdesk System</h1>
-        <p className="para">Sign up here</p>
+        <p className='para'>Sign up here</p>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <input
@@ -65,6 +54,7 @@ const SignUp = () => {
               required
             />
           </div>
+          
           <div className="input-group">
             <input
               type="email"
@@ -74,6 +64,7 @@ const SignUp = () => {
               required
             />
           </div>
+          
           <div className="input-group">
             <input
               type="password"
@@ -83,17 +74,10 @@ const SignUp = () => {
               required
             />
           </div>
-          <div className="input-group">
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              onChange={handleChange}
-              required
-            />
-          </div>
+          
           <button type="submit" className="signup-button">Sign Up</button>
         </form>
+        
         <div className="auth-links">
           <Link to="/forgotPassword" className="forgot-password">Forgot Password?</Link>
           <Link to="/signin" className="sign-in-link">Already have an account? Sign In</Link>

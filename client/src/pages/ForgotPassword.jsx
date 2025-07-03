@@ -10,8 +10,6 @@ const ForgotPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/login")
-    // Handle forgot password logic here
-    console.log('Password reset requested for:', email);
     setSubmitted(true);
     navigate("/signUp")
   };

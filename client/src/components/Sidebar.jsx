@@ -1,7 +1,7 @@
 import { LuLayoutDashboard } from "react-icons/lu";
 import NewTicket from "../assets/New Ticket.png";
 import Ticket from "../assets/Two Tickets.png";
-import './sidebar.css';
+import './Sidebar.css';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './MainNewTicket.css';
-import vector from '../assets/vector.png';
+import vector from '../assets/Vector.png';
 const MainNewTicket = () => {
   const [formData, setFormData] = useState({
     ticketNo: '',

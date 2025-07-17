@@ -30,7 +30,14 @@ const SignIn = () => {
     };
 
     try {
-      const res = await axios.post(`${serverUrl}/auth/signIn`, data);
+     // Update your axios request to include credentials:
+const res = await axios.post(`${serverUrl}/auth/signin`, data, {
+  withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }
+});
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);

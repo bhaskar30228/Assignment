@@ -1,10 +1,9 @@
 import express from "express";
-import { Router } from "express";
-const router = Router();
-import { userSignUp, userLogin } from "../controller/userController.js";
+import { userLogin, userSignUp } from "../controllers/userController.js";
 
-// Make sure all routes are properly defined
-router.post("/signup", userSignUp);  // No trailing slashes
-router.post("/signin", userLogin);   // No malformed parameters
+const router = express.Router();
+
+router.post("/signup", userSignUp);
+router.post("/login", userLogin);
 
 export default router;

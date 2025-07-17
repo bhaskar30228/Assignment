@@ -3,14 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
+
 const SignUp = () => {
-  const {isLoggedIn,setIsLoggedIn, serverUrl}=useContext(AuthContext)
-  const navigate=useNavigate();
+  const { setIsLoggedIn, serverUrl } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -21,22 +22,30 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data={username:formData.username,email:formData.email,password:formData.password}
-    setIsLoggedIn(true)
-    await axios.post(`${serverUrl}/auth/signup`, data)
-    .then((res) => {
-      localStorage.setItem("token",res.data.token)
-      localStorage.setItem("user",JSON.stringify(res.data.user))
-      console.log("User signed up successfully:", res.data);
+
+    try {
+      const res = await axios.post(`${serverUrl}/auth/signup`, {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      }, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      });
+
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
       setIsLoggedIn(true);
-      navigate("/dashboard")
-    })
-    .catch((error) => {
-      console.error("Error signing up user:", error);
-      alert("Error signing up user. Please try again.");
-      })
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error signing up user:", error.response?.data || error);
+      alert(error.response?.data?.error || "Error signing up user. Please try again.");
+    }
   };
 
   return (
@@ -50,6 +59,7 @@ const SignUp = () => {
               type="text"
               name="username"
               placeholder="Username"
+              value={formData.username}
               onChange={handleChange}
               required
             />
@@ -60,6 +70,7 @@ const SignUp = () => {
               type="email"
               name="email"
               placeholder="Email"
+              value={formData.email}
               onChange={handleChange}
               required
             />
@@ -70,6 +81,7 @@ const SignUp = () => {
               type="password"
               name="password"
               placeholder="Password"
+              value={formData.password}
               onChange={handleChange}
               required
             />

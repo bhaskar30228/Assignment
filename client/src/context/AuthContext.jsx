@@ -3,7 +3,7 @@ import { createContext, useState , } from 'react';
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const serverUrl = "https://assignment-5-8ib8.onrender.com";
+    const serverUrl = "https://assignment-4-3vyp.onrender.com";
 
   const token = localStorage.getItem('token'); 
   const user = localStorage.getItem('user'); 

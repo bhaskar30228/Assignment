@@ -12,8 +12,9 @@ app.use(express.json());
 
 // CORS configuration
 const allowedOrigins = [
-  "https://assignment-1v95.vercel.app/",
+  "https://assignment-717x.vercel.app/",
   "http://localhost:5173"
+  
 ];
 
 const corsOptions = {

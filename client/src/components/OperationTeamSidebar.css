@@ -1,0 +1,37 @@
+.sidebar {
+  
+  width: 250px;
+  background: rgba(106, 103, 103, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-img {
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar span{
+    font-family: 400;
+    font-family: Sanchez;
+    font-size: 26px;
+    letter-spacing: 0%;
+}

@@ -1,9 +1,8 @@
 import express from "express";
-import { userLogin, userSignUp } from "../controllers/userController.js";
-
 const router = express.Router();
+import { userSignUp, userLogin } from "../controller/userController.js";
 
+// Use consistent route naming (lowercase)
 router.post("/signup", userSignUp);
-router.post("/login", userLogin);
-
+router.post("/signin", userLogin);
 export default router;

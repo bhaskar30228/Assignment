@@ -11,8 +11,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // CORS configuration
+const allowedOrigins = [
+  "https://assignment-1v95.vercel.app/",
+  "http://localhost:5173"
+];
 
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 // Database connection
 connectDb();

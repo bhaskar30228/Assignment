@@ -3,7 +3,7 @@ import { createContext, useState ,useEffect } from 'react';
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const serverUrl = "http://localhost:5000";
+    const serverUrl = "https://assignment-2-8lye.onrender.com";
   const token = localStorage.getItem('token'); 
   const user = localStorage.getItem('user'); 
   const role = user ? JSON.parse(user).role : null; // Assuming user object has a role property

@@ -25,7 +25,7 @@ const SignUp = () => {
     e.preventDefault();
     const data={username:formData.username,email:formData.email,password:formData.password}
     setIsLoggedIn(true)
-    await axios.post("http://localhost:5000/auth/signup", data)
+    await axios.post(`${serverUrl}/auth/signup`, data)
     .then((res) => {
       localStorage.setItem("token",res.data.token)
       localStorage.setItem("user",JSON.stringify(res.data.user))

@@ -9,20 +9,18 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
-  "http://localhost:5173/",
+  "http://localhost:5173",
   "https://assignment-717x.vercel.app",
 ];
 
+// Enable CORS for all routes
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: allowedOrigins,
   credentials: true,
 }));
+
+// Handle OPTIONS requests
+app.options('*', cors());
 
 app.use(express.json());
 

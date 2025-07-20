@@ -1,15 +1,13 @@
 import { useContext } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
-import UserMain from '../components/UserMain';
 import { AuthContext } from '../context/AuthContext';
 import SignIn from './SignIn';
 import TicketApproval from '../components/TicketApproval';
 import OperationTeamSidebarrrrr from '../components/OperationTeamSidebarrrrr';
 
 const OperationalTicketApproval = () => {
-   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+   const { isLoggedIn } = useContext(AuthContext);
   return (
     isLoggedIn ?(
     <div className="home-layout">

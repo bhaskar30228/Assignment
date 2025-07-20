@@ -1,4 +1,3 @@
-import React from 'react'
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
@@ -10,7 +9,7 @@ import OperationTeamSidebar from '../components/OperationTeamSidebarrrrr';
 
 
 const Operationteam = () => {
-  const { isLoggedIn, setIsLoggedIn ,role} = useContext(AuthContext);
+  const { isLoggedIn} = useContext(AuthContext);
   return (
     isLoggedIn ?(
     <div className="home-layout">

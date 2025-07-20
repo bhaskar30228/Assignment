@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { FaEnvelope } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [ setSubmitted] = useState(false);
   const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();

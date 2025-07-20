@@ -1,15 +1,13 @@
 import  { useContext } from 'react';
 import Navbar from '../components/Navbar';
-import Main from '../components/Main';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
-import UserMain from '../components/UserMain';
 import MainNewTicket from '../components/MainNewTicket';
 import { AuthContext } from '../context/AuthContext';
 import SignIn from './SignIn';
 
 const NewTicket = () => {
-   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+   const { isLoggedIn } = useContext(AuthContext);
 
   return (
     isLoggedIn ?(

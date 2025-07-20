@@ -4,7 +4,7 @@ import './SignUp.css';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 const SignUp = () => {
-  const {isLoggedIn,setIsLoggedIn, serverUrl}=useContext(AuthContext)
+  const {setIsLoggedIn, serverUrl}=useContext(AuthContext)
   const navigate=useNavigate();
   const [formData, setFormData] = useState({
     username: '',

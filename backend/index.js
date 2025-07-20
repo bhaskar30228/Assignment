@@ -13,14 +13,16 @@ const allowedOrigins = [
   "https://assignment-717x.vercel.app",
 ];
 
-// Enable CORS for all routes
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 }));
-
-// Handle OPTIONS requests
-app.options('*', cors());
 
 app.use(express.json());
 
